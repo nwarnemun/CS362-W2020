@@ -9,7 +9,7 @@ import Dominion
 import testUtility
 
 #Get player names
-player_names = testUtility.getplayernames()
+player_names = ["Joe","*Jane"]
 
 #number of curses and victory cards
 nV = testUtility.setvictorycards(player_names)
@@ -22,6 +22,10 @@ supply_order = testUtility.getsupplyorder()
 
 #Pick 10 cards from box to be in the supply.
 supply = testUtility.getsupply(box,player_names,nV,nC)
+
+supply["Estate"] = [Dominion.Estate()] * nV
+supply["Duchy"] = [Dominion.Duchy()] * nV
+supply["Curse"] = [Dominion.Curse()] * 1
 
 #initialize the trash
 trash = []

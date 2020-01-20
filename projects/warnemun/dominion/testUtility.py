@@ -8,12 +8,7 @@ import Dominion
 import random
 from collections import defaultdict
 
-#Get player names
-def getplayernames():
-	player_names = ["Annie","*Ben","*Carla"]
-	return player_names
 
-#number of victory cards
 def setvictorycards(player_names):
 	if len(player_names) > 2:
 		nV = 12
@@ -21,7 +16,6 @@ def setvictorycards(player_names):
 		nV = 8
 	return nV
 
-#number of curse cards
 def setcursecards(player_names):
 	nC = -10 + 10 * len(player_names)
 	return nC
@@ -73,10 +67,6 @@ def getsupply(box,player_names,nV,nC):
 	supply["Copper"] = [Dominion.Copper()] * (60 - len(player_names) * 7)
 	supply["Silver"] = [Dominion.Silver()] * 40
 	supply["Gold"] = [Dominion.Gold()] * 30
-	supply["Estate"] = [Dominion.Estate()] * nV
-	supply["Duchy"] = [Dominion.Duchy()] * nV
-	supply["Province"] = [Dominion.Province()] * nV
-	supply["Curse"] = [Dominion.Curse()] * nC
 	return supply
 
 # Costruct the Player objects
